@@ -1,0 +1,57 @@
+settings:
+  lookback_days: 10
+  price_period: 2y
+  price_interval: 1d
+  output_dir: output
+  validation_splits: 5
+
+exchanges:
+  HKEX:
+    assets:
+      - {ticker: "0700.HK", name: Tencent Holdings, currency: HKD, aliases: ["Tencent", "騰訊"]}
+      - {ticker: "9988.HK", name: Alibaba Group, currency: HKD, aliases: ["Alibaba", "阿里巴巴"]}
+      - {ticker: "3690.HK", name: Meituan, currency: HKD, aliases: ["Meituan", "美團"]}
+      - {ticker: "0005.HK", name: HSBC Holdings, currency: HKD, aliases: ["HSBC", "匯豐"]}
+      - {ticker: "1299.HK", name: AIA Group, currency: HKD, aliases: ["AIA", "友邦"]}
+    sources:
+      - lihkg
+      - aastocks
+  KRX:
+    assets:
+      - {ticker: "005930.KS", name: Samsung Electronics, currency: KRW, aliases: ["Samsung", "삼성전자"]}
+      - {ticker: "000660.KS", name: SK Hynix, currency: KRW, aliases: ["SK Hynix", "SK하이닉스"]}
+      - {ticker: "035420.KS", name: NAVER, currency: KRW, aliases: ["Naver", "네이버"]}
+      - {ticker: "005380.KS", name: Hyundai Motor, currency: KRW, aliases: ["Hyundai", "현대차"]}
+      - {ticker: "068270.KS", name: Celltrion, currency: KRW, aliases: ["Celltrion", "셀트리온"]}
+    sources:
+      - naver_finance
+      - daum_finance
+
+# Apify actor input schemas vary. Configure each actor and its input below.
+# {ticker}, {name}, {query}, {since} and {until} are substituted per asset.
+# Set actor IDs here or through APIFY_ACTOR_ID_<SOURCE> environment variables.
+apify_sources:
+  lihkg:
+    actor_id: ""
+    input:
+      searchQuery: "{query}"
+      since: "{since}"
+      until: "{until}"
+  aastocks:
+    actor_id: ""
+    input:
+      searchQuery: "{query}"
+      since: "{since}"
+      until: "{until}"
+  naver_finance:
+    actor_id: ""
+    input:
+      searchQuery: "{query}"
+      since: "{since}"
+      until: "{until}"
+  daum_finance:
+    actor_id: ""
+    input:
+      searchQuery: "{query}"
+      since: "{since}"
+      until: "{until}"

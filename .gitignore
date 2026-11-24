@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.template
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+src/sentipipe.egg-info/
+output/
